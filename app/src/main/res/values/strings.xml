@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">DaggerAndroid</string>
     <string name="title_activity">DaggerTwoElevenActivity</string>
+    <string name="constructor_injected">Constructor injected.</string>
+    <string name="constructor_injection_failed">Constructor-Injection failed.</string>
+    <string name="module_injected">Module injected.</string>
+    <string name="module_injection_failed">Module-Injection failed.</string>
 </resources>

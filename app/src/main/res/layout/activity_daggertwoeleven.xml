@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DaggerTwoElevenActivity">
+    tools:context=".cases.injectactivity.DaggerTwoElevenActivity">
 
     <TextView
         android:id="@+id/tv_string_from_constructor_injected"

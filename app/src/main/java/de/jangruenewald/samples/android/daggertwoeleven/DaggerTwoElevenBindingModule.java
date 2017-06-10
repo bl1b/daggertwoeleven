@@ -8,6 +8,7 @@ import dagger.android.ActivityKey;
 import dagger.android.AndroidInjector;
 import dagger.android.support.FragmentKey;
 import dagger.multibindings.IntoMap;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.DaggerTwoElevenActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.DaggerTwoElevenFragment;
 
 /**

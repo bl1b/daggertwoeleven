@@ -1,4 +1,4 @@
-package de.jangruenewald.samples.android.daggertwoeleven;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
 
 import dagger.Module;
 import dagger.Provides;

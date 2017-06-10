@@ -1,10 +1,11 @@
-package de.jangruenewald.samples.android.daggertwoeleven;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerAppCompatActivity;
+import de.jangruenewald.samples.android.daggertwoeleven.R;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.DaggerTwoElevenFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.DaggerTwoElevenProvider;
 

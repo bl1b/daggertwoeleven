@@ -31,7 +31,14 @@ public class DaggerTwoElevenFragment extends DaggerFragment {
 
     @Inject
     @Named("fragment_string_from_module")
-    String stringFromModule;
+    String stringFromFragmentModule;
+
+    /**
+     * This works because of the `includes`-relationship in `DaggerTwoElevenFragmentModule`.
+     */
+    @Inject
+    @Named("string_from_module")
+    String stringFromActivityModule;
 
     public DaggerTwoElevenFragment() {
         // Required empty public constructor
@@ -59,10 +66,15 @@ public class DaggerTwoElevenFragment extends DaggerFragment {
             ((TextView) root.findViewById(R.id.tv_fragment_constructor_injected)).setText(R.string.fragment_constructor_injection_failed);
         }
 
-        if (stringFromModule != null) {
-            ((TextView) root.findViewById(R.id.tv_fragment_module_injected)).setText(stringFromModule);
+        if (stringFromFragmentModule != null) {
+            ((TextView) root.findViewById(R.id.tv_fragment_module_injected)).setText(stringFromFragmentModule);
         } else {
             ((TextView) root.findViewById(R.id.tv_fragment_module_injected)).setText(R.string.fragment_module_injection_failed);
+        }
+        if (stringFromFragmentModule != null) {
+            ((TextView) root.findViewById(R.id.tv_fragment_activitymodule_injected)).setText(stringFromActivityModule);
+        } else {
+            ((TextView) root.findViewById(R.id.tv_fragment_activitymodule_injected)).setText(R.string.fragment_module_injection_failed);
         }
         return root;
     }

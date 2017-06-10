@@ -1,5 +1,6 @@
 package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
 
+import android.content.Context;
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,5 +15,11 @@ public abstract class DaggerTwoElevenActivityModule {
     @Named("string_from_module")
     static String provideStringFromModule() {
         return "String from DaggerTwoElevenActivityModule";
+    }
+
+    @Provides
+    @Named("context_from_activity")
+    static Context provideContextFromActivity(DaggerTwoElevenActivity activity) {
+        return activity;
     }
 }

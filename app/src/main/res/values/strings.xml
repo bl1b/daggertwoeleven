@@ -5,4 +5,7 @@
     <string name="constructor_injection_failed">Constructor-Injection failed.</string>
     <string name="module_injected">Module injected.</string>
     <string name="module_injection_failed">Module-Injection failed.</string>
+
+    <string name="fragment_constructor_injection_failed">Constructor-Injection for fragment failed.</string>
+    <string name="fragment_module_injection_failed">Module-Injection for fragment failed.</string>
 </resources>

@@ -6,13 +6,13 @@ import javax.inject.Inject;
  * Created by Jan-2 on 10.06.2017.
  */
 
-public class DaggerTwoElevenActivityProvider {
+public class DaggerTwoElevenProvider {
 
     private final String sample;
 
     @Inject
-    public DaggerTwoElevenActivityProvider() {
-        sample = "String from DaggerTwoElevenActivityProvider";
+    public DaggerTwoElevenProvider() {
+        sample = "String from DaggerTwoElevenProvider";
     }
 
     public String provideString() {

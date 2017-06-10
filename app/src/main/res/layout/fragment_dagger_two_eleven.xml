@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    tools:context=".cases.injectfragment.DaggerTwoElevenFragment">
+
+    <TextView
+        android:id="@+id/tv_fragment_constructor_injected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/constructor_injected" />
+
+    <TextView
+        android:id="@+id/tv_fragment_module_injected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/module_injected" />
+
+</LinearLayout>

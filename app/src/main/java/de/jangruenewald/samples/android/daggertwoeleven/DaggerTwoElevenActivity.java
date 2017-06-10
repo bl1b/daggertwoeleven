@@ -3,10 +3,10 @@ package de.jangruenewald.samples.android.daggertwoeleven;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
-import dagger.Subcomponent;
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerAppCompatActivity;
-import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.DaggerTwoElevenActivityProvider;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.DaggerTwoElevenFragment;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.DaggerTwoElevenProvider;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,14 +16,14 @@ import javax.inject.Named;
  */
 public class DaggerTwoElevenActivity extends DaggerAppCompatActivity {
 
-    @Subcomponent(modules = {DaggerTwoElevenActivityModule.class})
+    @dagger.Subcomponent(modules = {DaggerTwoElevenActivityModule.class})
     public interface Component extends AndroidInjector<DaggerTwoElevenActivity> {
-        @Subcomponent.Builder
+        @dagger.Subcomponent.Builder
         abstract class Builder extends AndroidInjector.Builder<DaggerTwoElevenActivity> {}
     }
 
     @Inject
-    DaggerTwoElevenActivityProvider daggerTwoElevenActivityProvider;
+    DaggerTwoElevenProvider daggerTwoElevenProvider;
 
     @Inject
     @Named("string_from_module")
@@ -34,8 +34,8 @@ public class DaggerTwoElevenActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daggertwoeleven);
 
-        if (daggerTwoElevenActivityProvider != null) {
-            ((TextView) findViewById(R.id.tv_string_from_constructor_injected)).setText(daggerTwoElevenActivityProvider.provideString());
+        if (daggerTwoElevenProvider != null) {
+            ((TextView) findViewById(R.id.tv_string_from_constructor_injected)).setText(daggerTwoElevenProvider.provideString());
         } else {
             ((TextView) findViewById(R.id.tv_string_from_constructor_injected)).setText(R.string.constructor_injection_failed);
         }
@@ -45,5 +45,9 @@ public class DaggerTwoElevenActivity extends DaggerAppCompatActivity {
         } else {
             ((TextView) findViewById(R.id.tv_string_from_module_injected)).setText(R.string.module_injection_failed);
         }
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_daggertwoelevenfragment, DaggerTwoElevenFragment.newInstance())
+                .commit();
     }
 }

@@ -15,7 +15,7 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

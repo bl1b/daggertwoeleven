@@ -15,7 +15,7 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

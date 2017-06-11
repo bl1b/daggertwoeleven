@@ -22,7 +22,7 @@ import android.support.annotation.Nullable;
 import android.widget.TextView;
 import dagger.android.support.DaggerAppCompatActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
-import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.ChildFragment;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild.ChildFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.StringProvider;
 
 import javax.inject.Inject;

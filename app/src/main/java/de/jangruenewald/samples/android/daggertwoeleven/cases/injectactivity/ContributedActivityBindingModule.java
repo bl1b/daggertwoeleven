@@ -19,7 +19,7 @@ package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.ChildFragmentBindingModule;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild.ChildFragmentBindingModule;
 
 /**
  * Class ContributedActivityBindingModule.

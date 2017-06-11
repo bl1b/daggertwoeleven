@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorAccent"
     android:orientation="vertical"
     tools:context=".cases.injectfragment.ChildFragment">
 
@@ -10,6 +9,7 @@
         android:id="@+id/tv_fragment_constructor_injected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:gravity="center_horizontal"
         android:text="@string/constructor_injected" />
 
@@ -17,6 +17,7 @@
         android:id="@+id/tv_fragment_module_injected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:gravity="center_horizontal"
         android:text="@string/module_injected" />
 
@@ -24,8 +25,8 @@
         android:id="@+id/tv_fragment_activitymodule_injected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:gravity="center_horizontal"
         android:text="@string/module_injected" />
-
 
 </LinearLayout>

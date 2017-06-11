@@ -17,7 +17,6 @@
 
 package de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +31,10 @@ import javax.inject.Named;
 
 /**
  * Class ChildFragment.
- * TODO: Description
+ * This is an example of a fragment that is injected using the
+ * `@ContributesAndroidInjector`-method in {@link ChildFragmentBindingModule}.
+ * It's linked as a child-element to {@link de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivity}
+ * see: {@link de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivityBindingModule}.
  *
  * @author Jan Grünewald
  * @since 1.0.0
@@ -45,16 +47,11 @@ public class ChildFragment extends DaggerFragment {
     @Named("fragment_string_from_module")
     String stringFromFragmentModule;
 
-    /**
-     * This works because of the `includes`-relationship in `ChildFragmentModule`.
-     */
+    // Works because fragment is bound as a "child" to `ContributedActivity` in
+    // the Dagger-Dependency-Graph.
     @Inject
     @Named("string_from_module")
     String stringFromActivityModule;
-
-    public ChildFragment() {
-        // Required empty public constructor
-    }
 
     public static ChildFragment newInstance() {
         ChildFragment fragment = new ChildFragment();
@@ -65,6 +62,8 @@ public class ChildFragment extends DaggerFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        // NOTE:
+        // Since this fragment derives from DaggerFragment the call to `AndroidInjection.inject(this)` is obsolete.
         super.onCreate(savedInstanceState);
     }
 
@@ -89,15 +88,5 @@ public class ChildFragment extends DaggerFragment {
             ((TextView) root.findViewById(R.id.tv_fragment_activitymodule_injected)).setText(R.string.fragment_module_injection_failed);
         }
         return root;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 }

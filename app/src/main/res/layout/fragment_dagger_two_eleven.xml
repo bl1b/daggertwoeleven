@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorAccent"
     android:orientation="vertical"
-    tools:context=".cases.injectfragment.DaggerTwoElevenFragment">
+    tools:context=".cases.injectfragment.ChildFragment">
 
     <TextView
         android:id="@+id/tv_fragment_constructor_injected"

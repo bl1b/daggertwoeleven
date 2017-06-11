@@ -6,17 +6,17 @@ import dagger.Provides;
 import javax.inject.Named;
 
 /**
- * Class DaggerTwoElevenFragmentModule.
+ * Class ChildFragmentModule.
  * TODO: Description
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
 @Module
-public abstract class DaggerTwoElevenFragmentModule {
+public abstract class ChildFragmentModule {
     @Provides
     @Named("fragment_string_from_module")
     static String provideFragmentStringFromModule() {
-        return "String from DaggerTwoElevenFragmentModule";
+        return "String from ChildFragmentModule";
     }
 }

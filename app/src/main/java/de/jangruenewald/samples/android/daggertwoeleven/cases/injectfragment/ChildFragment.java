@@ -8,39 +8,39 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import dagger.android.support.DaggerFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
-import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.DaggerTwoElevenProvider;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.StringProvider;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * Class DaggerTwoElevenFragment.
+ * Class ChildFragment.
  * TODO: Description
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
-public class DaggerTwoElevenFragment extends DaggerFragment {
+public class ChildFragment extends DaggerFragment {
     @Inject
-    DaggerTwoElevenProvider provider;
+    StringProvider provider;
 
     @Inject
     @Named("fragment_string_from_module")
     String stringFromFragmentModule;
 
     /**
-     * This works because of the `includes`-relationship in `DaggerTwoElevenFragmentModule`.
+     * This works because of the `includes`-relationship in `ChildFragmentModule`.
      */
     @Inject
     @Named("string_from_module")
     String stringFromActivityModule;
 
-    public DaggerTwoElevenFragment() {
+    public ChildFragment() {
         // Required empty public constructor
     }
 
-    public static DaggerTwoElevenFragment newInstance() {
-        DaggerTwoElevenFragment fragment = new DaggerTwoElevenFragment();
+    public static ChildFragment newInstance() {
+        ChildFragment fragment = new ChildFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;

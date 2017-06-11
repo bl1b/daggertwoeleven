@@ -3,19 +3,19 @@ package de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstru
 import javax.inject.Inject;
 
 /**
- * Class DaggerTwoElevenProvider.
+ * Class StringProvider.
  * TODO: Description
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
-public class DaggerTwoElevenProvider {
+public class StringProvider {
 
     private final String sample;
 
     @Inject
-    public DaggerTwoElevenProvider() {
-        sample = "String from DaggerTwoElevenProvider";
+    public StringProvider() {
+        sample = "String from StringProvider";
     }
 
     public String provideString() {

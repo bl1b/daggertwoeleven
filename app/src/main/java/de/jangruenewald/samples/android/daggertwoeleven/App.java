@@ -3,29 +3,30 @@ package de.jangruenewald.samples.android.daggertwoeleven;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import dagger.android.support.DaggerApplication;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivityBindingModule;
 
 /**
- * Class DaggerTwoElevenApplication.
+ * Class App.
  * TODO: Description
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
-public class DaggerTwoElevenApplication extends DaggerApplication {
+public class App extends DaggerApplication {
 
     @dagger.Component(
             modules = {
-                    DaggerTwoElevenBindingModule.class,
+                    ContributedActivityBindingModule.class,
                     AndroidSupportInjectionModule.class
             }
     )
-    interface Component extends AndroidInjector<DaggerTwoElevenApplication> {
+    interface Component extends AndroidInjector<App> {
         @dagger.Component.Builder
-        abstract class Builder extends AndroidInjector.Builder<DaggerTwoElevenApplication> {}
+        abstract class Builder extends AndroidInjector.Builder<App> {}
     }
 
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return DaggerDaggerTwoElevenApplication_Component.builder().create(this);
+        return DaggerApp_Component.builder().create(this);
     }
 }

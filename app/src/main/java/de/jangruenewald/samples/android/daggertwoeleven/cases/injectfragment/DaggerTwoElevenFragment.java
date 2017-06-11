@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.DaggerTwoElevenProvider;
@@ -14,18 +13,14 @@ import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstruc
 import javax.inject.Inject;
 import javax.inject.Named;
 
+/**
+ * Class DaggerTwoElevenFragment.
+ * TODO: Description
+ *
+ * @author Jan Grünewald
+ * @since 1.0.0
+ */
 public class DaggerTwoElevenFragment extends DaggerFragment {
-
-    @dagger.Subcomponent(
-            modules = {
-                    DaggerTwoElevenFragmentModule.class
-            }
-    )
-    public interface Component extends AndroidInjector<DaggerTwoElevenFragment> {
-        @dagger.Subcomponent.Builder
-        abstract class Builder extends AndroidInjector.Builder<DaggerTwoElevenFragment> {}
-    }
-
     @Inject
     DaggerTwoElevenProvider provider;
 

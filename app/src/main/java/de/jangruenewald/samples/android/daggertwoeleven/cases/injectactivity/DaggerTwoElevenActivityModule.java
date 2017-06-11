@@ -7,7 +7,11 @@ import dagger.Provides;
 import javax.inject.Named;
 
 /**
- * Created by Jan-2 on 10.06.2017.
+ * Class DaggerTwoElevenActivityModule.
+ * TODO: Description
+ *
+ * @author Jan Grünewald
+ * @since 1.0.0
  */
 @Module
 public abstract class DaggerTwoElevenActivityModule {

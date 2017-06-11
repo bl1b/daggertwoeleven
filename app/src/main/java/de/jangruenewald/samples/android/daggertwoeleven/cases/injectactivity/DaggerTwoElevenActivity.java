@@ -3,7 +3,6 @@ package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
-import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerAppCompatActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.DaggerTwoElevenFragment;
@@ -13,16 +12,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * Created by Jan-2 on 20.05.2017.
+ * Class DaggerTwoElevenActivity.
+ * TODO: Description
+ *
+ * @author Jan Grünewald
+ * @since 1.0.0
  */
 public class DaggerTwoElevenActivity extends DaggerAppCompatActivity {
-
-    @dagger.Subcomponent(modules = {DaggerTwoElevenActivityModule.class})
-    public interface Component extends AndroidInjector<DaggerTwoElevenActivity> {
-        @dagger.Subcomponent.Builder
-        abstract class Builder extends AndroidInjector.Builder<DaggerTwoElevenActivity> {}
-    }
-
     @Inject
     DaggerTwoElevenProvider daggerTwoElevenProvider;
 

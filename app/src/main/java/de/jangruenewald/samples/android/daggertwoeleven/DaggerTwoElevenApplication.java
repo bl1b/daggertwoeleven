@@ -5,7 +5,11 @@ import dagger.android.support.AndroidSupportInjectionModule;
 import dagger.android.support.DaggerApplication;
 
 /**
- * Created by Jan-2 on 09.05.2017.
+ * Class DaggerTwoElevenApplication.
+ * TODO: Description
+ *
+ * @author Jan Grünewald
+ * @since 1.0.0
  */
 public class DaggerTwoElevenApplication extends DaggerApplication {
 

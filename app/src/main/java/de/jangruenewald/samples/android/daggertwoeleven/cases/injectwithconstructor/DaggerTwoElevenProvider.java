@@ -3,9 +3,12 @@ package de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstru
 import javax.inject.Inject;
 
 /**
- * Created by Jan-2 on 10.06.2017.
+ * Class DaggerTwoElevenProvider.
+ * TODO: Description
+ *
+ * @author Jan Grünewald
+ * @since 1.0.0
  */
-
 public class DaggerTwoElevenProvider {
 
     private final String sample;

@@ -15,7 +15,7 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,13 +30,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * Class ContributedActivity.
+ * Class Contributed.
  * TODO: Description
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
-public class ContributedActivity extends DaggerAppCompatActivity {
+public class Contributed extends DaggerAppCompatActivity {
     @Inject
     StringProvider stringProvider;
 
@@ -51,7 +51,7 @@ public class ContributedActivity extends DaggerAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daggertwoeleven);
+        setContentView(R.layout.activity_contributed);
 
         if (stringProvider != null) {
             ((TextView) findViewById(R.id.tv_string_from_constructor_injected)).setText(stringProvider.provideString());

@@ -24,6 +24,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import dagger.android.support.DaggerFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed.Contributed;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed.ContributedBindingModule;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.StringProvider;
 
 import javax.inject.Inject;
@@ -33,8 +35,8 @@ import javax.inject.Named;
  * Class ChildFragment.
  * This is an example of a fragment that is injected using the
  * `@ContributesAndroidInjector`-method in {@link ChildFragmentBindingModule}.
- * It's linked as a child-element to {@link de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivity}
- * see: {@link de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivityBindingModule}.
+ * It's linked as a child-element to {@link Contributed}
+ * see: {@link ContributedBindingModule}.
  *
  * @author Jan Grünewald
  * @since 1.0.0
@@ -47,7 +49,7 @@ public class ChildFragment extends DaggerFragment {
     @Named("fragment_string_from_module")
     String stringFromFragmentModule;
 
-    // Works because fragment is bound as a "child" to `ContributedActivity` in
+    // Works because fragment is bound as a "child" to `Contributed` in
     // the Dagger-Dependency-Graph.
     @Inject
     @Named("string_from_module")
@@ -85,7 +87,7 @@ public class ChildFragment extends DaggerFragment {
         if (stringFromFragmentModule != null) {
             ((TextView) root.findViewById(R.id.tv_fragment_activitymodule_injected)).setText(stringFromActivityModule);
         } else {
-            ((TextView) root.findViewById(R.id.tv_fragment_activitymodule_injected)).setText(R.string.fragment_module_injection_failed);
+            ((TextView) root.findViewById(R.id.tv_fragment_activitymodule_injected)).setText(R.string.activity_module_injection_failed);
         }
         return root;
     }

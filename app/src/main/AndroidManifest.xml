@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".cases.injectactivity.ContributedActivity"
+            android:name=".cases.injectactivity.contributed.Contributed"
             android:label="@string/title_activity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

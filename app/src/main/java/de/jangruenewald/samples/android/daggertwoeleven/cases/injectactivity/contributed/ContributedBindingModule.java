@@ -15,21 +15,23 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild.ChildFragmentBindingModule;
 
 /**
- * Class ContributedActivityBindingModule.
- * TODO: Description
+ * Class ContributedBindingModule.
+ * <p>
+ * This module implicitly binds a {@link dagger.Subcomponent} containing the modules
+ * {@link ContributedUtilityModule} and {@link ChildFragmentBindingModule} to the dependency graph.
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
 @Module
-public abstract class ContributedActivityBindingModule {
-    @ContributesAndroidInjector(modules = {ContributedActivityModule.class, ChildFragmentBindingModule.class})
-    abstract ContributedActivity contributeDaggerTwoElevenActivity();
+public abstract class ContributedBindingModule {
+    @ContributesAndroidInjector(modules = {ContributedUtilityModule.class, ChildFragmentBindingModule.class})
+    abstract Contributed contributeDaggerTwoElevenActivity();
 }

@@ -15,7 +15,7 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed;
 
 import android.content.Context;
 import dagger.Module;
@@ -24,23 +24,23 @@ import dagger.Provides;
 import javax.inject.Named;
 
 /**
- * Class ContributedActivityModule.
+ * Class ContributedUtilityModule.
  * TODO: Description
  *
  * @author Jan Grünewald
  * @since 1.0.0
  */
 @Module
-public abstract class ContributedActivityModule {
+public abstract class ContributedUtilityModule {
     @Provides
     @Named("string_from_module")
     static String provideStringFromModule() {
-        return "String from ContributedActivityModule";
+        return "String from ContributedUtilityModule";
     }
 
     @Provides
     @Named("context_from_activity")
-    static Context provideContextFromActivity(ContributedActivity contributedActivity) {
-        return contributedActivity;
+    static Context provideContextFromActivity(Contributed contributed) {
+        return contributed;
     }
 }

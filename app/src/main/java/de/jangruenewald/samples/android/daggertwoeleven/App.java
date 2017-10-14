@@ -33,12 +33,9 @@ import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedStrin
  */
 public class App extends DaggerApplication {
 
-    @dagger.Component(
-            modules = {
-                    AndroidSupportInjectionModule.class,
-                    ContributedBindingModule.class,
-            }
-    )
+    @dagger.Component(modules = {
+            AndroidSupportInjectionModule.class,
+            ContributedBindingModule.class})
     interface Component extends AndroidInjector<App> {
         @dagger.Component.Builder
         abstract class Builder extends AndroidInjector.Builder<App> {
@@ -51,7 +48,7 @@ public class App extends DaggerApplication {
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
         return DaggerApp_Component
                 .builder()
-                .username("Bob")
+                .username("Username from application")
                 .create(this);
     }
 }

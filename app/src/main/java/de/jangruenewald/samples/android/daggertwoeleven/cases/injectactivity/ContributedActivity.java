@@ -24,6 +24,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild.ChildFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.StringProvider;
+import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -43,6 +44,10 @@ public class ContributedActivity extends DaggerAppCompatActivity {
     @Named("string_from_module")
     String stringFromModule;
 
+    @Inject
+    @ProvidedString("username")
+    String username;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,12 @@ public class ContributedActivity extends DaggerAppCompatActivity {
             ((TextView) findViewById(R.id.tv_string_from_module_injected)).setText(stringFromModule);
         } else {
             ((TextView) findViewById(R.id.tv_string_from_module_injected)).setText(R.string.module_injection_failed);
+        }
+
+        if (username != null) {
+            ((TextView) findViewById(R.id.tv_string_from_application_component)).setText(username);
+        } else {
+            ((TextView) findViewById(R.id.tv_string_from_application_component)).setText(R.string.application_injection_failed);
         }
 
         getSupportFragmentManager().beginTransaction()

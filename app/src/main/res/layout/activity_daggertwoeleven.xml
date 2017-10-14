@@ -20,6 +20,13 @@
         android:gravity="center_horizontal"
         android:text="@string/module_injected" />
 
+    <TextView
+        android:id="@+id/tv_string_from_application_component"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/application_injected" />
+
     <FrameLayout
         android:id="@+id/fragment_daggertwoelevenfragment"
         android:layout_width="match_parent"

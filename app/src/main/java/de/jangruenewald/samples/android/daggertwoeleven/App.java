@@ -17,10 +17,13 @@
 
 package de.jangruenewald.samples.android.daggertwoeleven;
 
+import dagger.BindsInstance;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import dagger.android.support.DaggerApplication;
+import dagger.multibindings.StringKey;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivityBindingModule;
+import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
 
 /**
  * Class App.
@@ -39,11 +42,17 @@ public class App extends DaggerApplication {
     )
     interface Component extends AndroidInjector<App> {
         @dagger.Component.Builder
-        abstract class Builder extends AndroidInjector.Builder<App> {}
+        abstract class Builder extends AndroidInjector.Builder<App> {
+            @BindsInstance
+            abstract Builder username(@ProvidedString("username") String username);
+        }
     }
 
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return DaggerApp_Component.builder().create(this);
+        return DaggerApp_Component
+                .builder()
+                .username("Bob")
+                .create(this);
     }
 }

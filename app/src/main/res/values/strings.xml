@@ -8,4 +8,6 @@
 
     <string name="fragment_constructor_injection_failed">Constructor-Injection for fragment failed.</string>
     <string name="fragment_module_injection_failed">Module-Injection for fragment failed.</string>
+    <string name="application_injected">Injected String from application-component.</string>
+    <string name="application_injection_failed">Failed injection from application.</string>
 </resources>

@@ -21,7 +21,6 @@ import dagger.BindsInstance;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import dagger.android.support.DaggerApplication;
-import dagger.multibindings.StringKey;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.ContributedActivityBindingModule;
 import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
 
@@ -36,8 +35,8 @@ public class App extends DaggerApplication {
 
     @dagger.Component(
             modules = {
+                    AndroidSupportInjectionModule.class,
                     ContributedActivityBindingModule.class,
-                    AndroidSupportInjectionModule.class
             }
     )
     interface Component extends AndroidInjector<App> {

@@ -1,6 +1,37 @@
 # daggertwoeleven
 This project showcases various use-cases of dependency-injection using Dagger >= 2.11.
 
+## Use-Cases
+### Application extending DaggerApplication
+1. `AndroidManifest.xml` refers to the `Application`-class
+   ```xml
+   <application
+           android:name=".App"
+   ``` 
+2. `Application`-class extends from `DaggerApplication` 
+   ```java
+   public class App extends DaggerApplication 
+   ```
+3. `@dagger.Component` (inside `Application`-class or in a separate file)  **must** contain module `AndroidSupportInjectionModule.class`
+    ```java
+    @dagger.Component(modules = {AndroidSupportInjectionModule.class})
+    interface Component extends AndroidInjector<App> {
+        @dagger.Component.Builder
+        abstract class Builder extends AndroidInjector.Builder<App> {}
+    }
+    ```
+4. `Application`-class **must** `@Override` the method `applicationInjector()`
+    ```java
+    @Override
+    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+        return DaggerApp_Component
+                .builder()
+                .create(this);
+    }
+    ```
+    The class`DaggerApp_Component` will be generated automatically by the annotationProcessor.\
+    If not, try building the project and try again.\
+    If it's still not working there's something wrong.
 ## License
 
     Copyright 2017 Jan Grünewald

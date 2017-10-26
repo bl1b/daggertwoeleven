@@ -1,39 +1,44 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.targetSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
     defaultConfig {
         applicationId "de.jangruenewald.daggerandroid"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
     lintOptions {
         disable 'GoogleAppIndexingWarning', 'OldTargetApi'
     }
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.android.support:design:25.3.1'
+    compile "com.android.support:appcompat-v7:$supportLibVersion"
+    compile "com.android.support:support-v4:$supportLibVersion"
+    compile "com.android.support:design:$supportLibVersion"
+    compile "com.android.support.constraint:constraint-layout:$constraintLibVersion"
 
     // dagger dependencies
-    compile 'com.google.dagger:dagger-android-support:2.12'
+    compile "com.google.dagger:dagger-android-support:$daggerVersion"
 
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.12'
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
 }

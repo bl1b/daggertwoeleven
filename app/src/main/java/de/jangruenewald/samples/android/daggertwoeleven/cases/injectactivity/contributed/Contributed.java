@@ -17,11 +17,14 @@
 
 package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.TextView;
 import dagger.android.support.DaggerAppCompatActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.classic.Classic;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild.ChildFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.StringProvider;
 import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
@@ -70,6 +73,14 @@ public class Contributed extends DaggerAppCompatActivity {
         } else {
             ((TextView) findViewById(R.id.tv_string_from_application_component)).setText(R.string.application_injection_failed);
         }
+
+        findViewById(R.id.switch_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent activityIntent = new Intent(getApplicationContext(), Classic.class);
+                startActivity(activityIntent);
+            }
+        });
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_daggertwoelevenfragment, ChildFragment.newInstance())

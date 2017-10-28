@@ -13,4 +13,5 @@
     <string name="activity_module_injection_failed">Failed injecting string from parent activity.</string>
     <string name="extensible_default_string">Extensible Default-String</string>
     <string name="btn_switch">Switch to classic activity</string>
+    <string name="classic_fun">Default fun</string>
 </resources>

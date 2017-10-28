@@ -23,13 +23,16 @@ import dagger.Subcomponent;
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerAppCompatActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface.FunProvider;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface.FunProviderModule;
 import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 public class Classic extends DaggerAppCompatActivity {
 
-    @Subcomponent(modules = ClassicModule.class)
+    @Subcomponent(modules = {ClassicModule.class, FunProviderModule.class}) @Singleton
     public interface ClassicComponent extends AndroidInjector<Classic> {
         @Subcomponent.Builder
         abstract class Builder extends AndroidInjector.Builder<Classic> {}
@@ -39,6 +42,8 @@ public class Classic extends DaggerAppCompatActivity {
     @ProvidedString("extensibleString")
     String extensible;
 
+    @Inject FunProvider funProvider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,10 @@ public class Classic extends DaggerAppCompatActivity {
 
         if (extensible != null && !extensible.isEmpty()) {
             ((TextView) findViewById(R.id.tvExtensible)).setText(extensible);
+        }
+
+        if (funProvider != null) {
+            ((TextView) findViewById(R.id.tvFun)).setText(funProvider.provideTheFun());
         }
     }
 }

@@ -25,6 +25,7 @@ import android.widget.TextView;
 import dagger.android.support.DaggerAppCompatActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.R;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.classic.Classic;
+import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.overridenmodule.MyActivity;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectfragment.aschild.ChildFragment;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectwithconstructor.StringProvider;
 import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
@@ -78,6 +79,13 @@ public class Contributed extends DaggerAppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent activityIntent = new Intent(getApplicationContext(), Classic.class);
+                startActivity(activityIntent);
+            }
+        });
+
+        findViewById(R.id.switch_btn2).setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent activityIntent = new Intent(getApplicationContext(), MyActivity.class);
                 startActivity(activityIntent);
             }
         });

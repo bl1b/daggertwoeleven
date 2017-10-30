@@ -37,6 +37,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/btn_switch"/>
+        android:text="@string/btn_switch" />
+
+    <Button
+        android:id="@+id/switch_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/contributed_btn2_label" />
 
 </LinearLayout>

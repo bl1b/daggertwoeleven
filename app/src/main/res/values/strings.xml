@@ -14,4 +14,6 @@
     <string name="extensible_default_string">Extensible Default-String</string>
     <string name="btn_switch">Switch to classic activity</string>
     <string name="classic_fun">Default fun</string>
+    <string name="overriden_text">Injection failed.</string>
+    <string name="contributed_btn2_label">Switch to Overriden-Activity</string>
 </resources>

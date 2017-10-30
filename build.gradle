@@ -2,7 +2,7 @@
 
 buildscript {
     ext.constraintLibVersion = '1.0.2'
-    ext.daggerVersion = '2.12'
+    ext.daggerVersion = '2.11'
     ext.supportLibVersion = '26.1.0'
     ext.targetSdkVersion = 26
     ext.minSdkVersion = 16

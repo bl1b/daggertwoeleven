@@ -15,16 +15,22 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface;
+package de.jangruenewald.samples.android.daggertwoeleven;
 
-import dagger.Binds;
-import dagger.Module;
+import dagger.MapKey;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Created by Jan-2 on 27.10.2017.
+ * Created by Jan-2 on 30.10.2017.
  */
-@Module
-public abstract class FunProviderModule {
 
-    @Binds abstract FunProvider provideFunProvider(GreatFunProvider greatFunProvider);
+@MapKey
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SubcomponentKey {
+    Class<?> value();
 }

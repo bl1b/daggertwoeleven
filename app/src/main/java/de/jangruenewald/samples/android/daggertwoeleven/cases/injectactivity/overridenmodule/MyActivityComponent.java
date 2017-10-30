@@ -15,16 +15,22 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.overridenmodule;
 
-import dagger.Binds;
-import dagger.Module;
+import dagger.BindsInstance;
+import dagger.Subcomponent;
+import dagger.android.AndroidInjector;
+import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ActivityScope;
 
 /**
- * Created by Jan-2 on 27.10.2017.
+ * Created by Jan-2 on 29.10.2017.
  */
-@Module
-public abstract class FunProviderModule {
+@ActivityScope
+@Subcomponent(modules = {BasicModule.class})
+public interface MyActivityComponent extends AndroidInjector<MyActivity> {
 
-    @Binds abstract FunProvider provideFunProvider(GreatFunProvider greatFunProvider);
+    @Subcomponent.Builder
+    abstract class Builder extends AndroidInjector.Builder<MyActivity> {
+        @BindsInstance abstract Builder basicModule(BasicModule basicModule);
+    }
 }

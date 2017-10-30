@@ -15,16 +15,20 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.overridenmodule;
 
+import android.app.Activity;
 import dagger.Binds;
 import dagger.Module;
+import dagger.android.ActivityKey;
+import dagger.android.AndroidInjector;
+import dagger.multibindings.IntoMap;
 
 /**
- * Created by Jan-2 on 27.10.2017.
+ * Created by Jan-2 on 30.10.2017.
  */
-@Module
-public abstract class FunProviderModule {
-
-    @Binds abstract FunProvider provideFunProvider(GreatFunProvider greatFunProvider);
+@Module(subcomponents = {MyActivityComponent.class})
+public abstract class MyActivityBindingModule {
+    @Binds @IntoMap @ActivityKey(MyActivity.class)
+    abstract AndroidInjector.Factory<? extends Activity> bind(MyActivityComponent.Builder builder);
 }

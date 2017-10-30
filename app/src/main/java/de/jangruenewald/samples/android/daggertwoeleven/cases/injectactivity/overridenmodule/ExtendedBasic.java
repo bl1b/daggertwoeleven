@@ -15,16 +15,15 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface;
-
-import dagger.Binds;
-import dagger.Module;
+package de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.overridenmodule;
 
 /**
- * Created by Jan-2 on 27.10.2017.
+ * Created by Jan-2 on 28.10.2017.
  */
-@Module
-public abstract class FunProviderModule {
 
-    @Binds abstract FunProvider provideFunProvider(GreatFunProvider greatFunProvider);
+public class ExtendedBasic extends BasicModule {
+
+    @Override public String provideString() {
+        return "OverridenExtended";
+    }
 }

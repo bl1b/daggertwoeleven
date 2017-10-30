@@ -15,16 +15,19 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface;
+package de.jangruenewald.samples.android.daggertwoeleven.qualifiers;
 
-import dagger.Binds;
-import dagger.Module;
+import javax.inject.Scope;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Created by Jan-2 on 27.10.2017.
+ * Created by Jan-2 on 29.10.2017.
  */
-@Module
-public abstract class FunProviderModule {
-
-    @Binds abstract FunProvider provideFunProvider(GreatFunProvider greatFunProvider);
+@Scope
+@Documented
+@Retention(RUNTIME)
+public @interface ActivityScope {
 }

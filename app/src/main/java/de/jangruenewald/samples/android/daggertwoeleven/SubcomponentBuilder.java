@@ -15,16 +15,12 @@
  *
  */
 
-package de.jangruenewald.samples.android.daggertwoeleven.cases.provideinterface;
-
-import dagger.Binds;
-import dagger.Module;
+package de.jangruenewald.samples.android.daggertwoeleven;
 
 /**
- * Created by Jan-2 on 27.10.2017.
+ * Created by Jan-2 on 30.10.2017.
  */
-@Module
-public abstract class FunProviderModule {
 
-    @Binds abstract FunProvider provideFunProvider(GreatFunProvider greatFunProvider);
+public interface SubcomponentBuilder<V> {
+    V build();
 }

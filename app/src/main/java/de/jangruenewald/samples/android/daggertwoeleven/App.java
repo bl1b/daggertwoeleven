@@ -17,6 +17,7 @@
 
 package de.jangruenewald.samples.android.daggertwoeleven;
 
+import android.app.Activity;
 import dagger.BindsInstance;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
@@ -24,6 +25,10 @@ import dagger.android.support.DaggerApplication;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.classic.ClassicBindingModule;
 import de.jangruenewald.samples.android.daggertwoeleven.cases.injectactivity.contributed.ContributedBindingModule;
 import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedString;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
+import java.util.Map;
 
 /**
  * Class App.
@@ -34,23 +39,31 @@ import de.jangruenewald.samples.android.daggertwoeleven.qualifiers.ProvidedStrin
  */
 public class App extends DaggerApplication {
 
+    private AndroidInjector<App> appInjector;
+
     @dagger.Component(modules = {
             AndroidSupportInjectionModule.class,
             ContributedBindingModule.class,
-            ClassicBindingModule.class})
-    interface Component extends AndroidInjector<App> {
+            ClassicBindingModule.class,
+//            MyActivityBindingModule.class
+    })
+    public interface Component extends AndroidInjector<App> {
         @dagger.Component.Builder
         abstract class Builder extends AndroidInjector.Builder<App> {
-            @BindsInstance
-            abstract Builder username(@ProvidedString("username") String username);
+            @BindsInstance abstract Builder username(@ProvidedString("username") String username);
         }
     }
 
+    @Inject Map<Class<? extends Activity>, Provider<AndroidInjector.Factory<? extends Activity>>> builderMap;
+
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return DaggerApp_Component
+        appInjector = DaggerApp_Component
                 .builder()
                 .username("Username from application")
                 .create(this);
+
+        appInjector.inject(this);
+        return appInjector;
     }
 }

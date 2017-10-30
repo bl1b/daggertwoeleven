@@ -21,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cases.injectactivity.classic.Classic"></activity>
+        <activity android:name=".cases.injectactivity.classic.Classic" />
+        <activity android:name=".cases.injectactivity.overridenmodule.MyActivity" />
+        <activity android:name=".cases.dependentcomponent.Dependent"></activity>
     </application>
 
 </manifest>
